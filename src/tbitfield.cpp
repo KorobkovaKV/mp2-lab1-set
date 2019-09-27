@@ -89,8 +89,7 @@ int TBitField::GetBit(const int n) const // получить значение б
         if (pMem[GetMemIndex(n)] == 0)
                 return 0;
         else
-                retutn 1;
-
+                return 1;
 }
 
 // битовые операции
