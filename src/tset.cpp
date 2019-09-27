@@ -41,18 +41,12 @@ int TSet::IsMember(const int Elem) const // элемент множества?
 
 void TSet::InsElem(const int Elem) // включение элемента множества
 {
-	if ((Elem > 0) && (Elem < MaxPower))
-		BitField.SetBit(Elem);
-	else
-		throw "Элемент не принадлежит мн-ву!!!";
+	BitField.SetBit(Elem);
 }
 
 void TSet::DelElem(const int Elem) // исключение элемента множества
 {
-	if ((Elem > 0) && (Elem < MaxPower))
-		BitField.ClrBit(Elem);
-	else
-		throw "Элемент не принадлежит мн-ву!!!";
+	BitField.ClrBit(Elem);
 }
 
 // теоретико-множественные операции
@@ -103,12 +97,9 @@ TSet TSet::operator+(const TSet &s) // объединение
 
 TSet TSet::operator+(const int Elem) // объединение с элементом
 {
-	if ((Elem<0) || (Elem>MaxPower))
-		throw "Выход за пределы множества!!!";
 	TSet a(MaxPower);
 	a.BitField.SetBit(Elem);
 	return a;
-
 }
 
 TSet TSet::operator-(const int Elem) // разность с элементом
