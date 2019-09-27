@@ -82,15 +82,15 @@ void TBitField::ClrBit(const int n) // очистить бит
 
 int TBitField::GetBit(const int n) const // получить значение бита
 {
-	if ((n >= 0) && (n < BitLen))
-		pMem[GetMemIndex(n)] = pMem[GetMemIndex(n)] & GetMemMask(n);
-	else
-		throw "Индекс введен неправильно!!!";
-        if (pMem[GetMemIndex(n)] == 0)
-                return 0;
-        else
-                return 1;
-}
+ if ((n >= 0) && (n < BitLen))  
+ {
+ if ((pMem[GetMemIndex(n)] & GetMemMask(n)) == 0)
+ return 0;
+ else 
+ return 1;
+ }
+  else  throw "Индекс введен неправильно!!!"; 
+ }
 
 // битовые операции
 
