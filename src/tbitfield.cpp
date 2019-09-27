@@ -53,7 +53,7 @@ TELEM TBitField::GetMemMask(const int n) const // битовая маска дл
 	}
 	else
 		throw "Неверно введен бит!!!";
-	TELEM mask = 1 >> s;
+	TELEM mask = 1 << s;
 	return mask;
 }
 
@@ -86,7 +86,11 @@ int TBitField::GetBit(const int n) const // получить значение б
 		pMem[GetMemIndex(n)] = pMem[GetMemIndex(n)] & GetMemMask(n);
 	else
 		throw "Индекс введен неправильно!!!";
-	return pMem[GetMemIndex(n)];
+        if (pMem[GetMemIndex(n)] == 0)
+                return 0;
+        else
+                retutn 1;
+
 }
 
 // битовые операции
@@ -101,7 +105,7 @@ TBitField& TBitField::operator=(const TBitField &bf) // присваивание
 		pMem = new TELEM[MemLen];
 		for (int i = 0; i < MemLen; i++)
 		{
-			pMem[GetMemIndex(i)] = bf.pMem[GetMemIndex(i)];
+			pMem[i] = bf.pMem[i];
 		}
 	}
 	return *this;
