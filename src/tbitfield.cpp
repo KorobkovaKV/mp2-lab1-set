@@ -200,8 +200,7 @@ ostream &operator<<(ostream &ostr, const TBitField &bf) // вывод
 	char a;
 	for (int i = 0; i < bf.BitLen; i++)
 	{
-		a = bf.GetBit(i);
-		ostr << a;
+		ostr << bf.GetBit(i);
 	}
 	return ostr;
 }
